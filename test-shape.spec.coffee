@@ -1,7 +1,7 @@
 PI = 3
 
 class Shape
-  
+
 class Ellipse extends Shape
   constructor: (@major, @minor) ->
   area: ->
@@ -20,10 +20,9 @@ class Square extends Rectangle
   constructor: (@length) ->
     super @length, @length
 
-class Triangle extends Shape
-  constructor: (@height, @width) ->
+class Triangle extends Rectangle
   area: ->
-    @height * @width / 2
+    @height * @length / 2
 
 describe 'shapes kata', ->
   it 'a circle of zero radius should have zero area', ->
