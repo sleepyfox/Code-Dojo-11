@@ -1,8 +1,14 @@
 PI = 3
+
 class Circle
   constructor: (@radius) ->
   area: ->
     PI * @radius * @radius
+
+class Rectangle
+  constructor: (@height, @length) ->
+  area: ->
+    @height * @length
 
 describe 'shapes kata', ->
   it 'a circle of zero radius should have zero area', ->
@@ -18,8 +24,18 @@ describe 'shapes kata', ->
     expect(circle.area()).toBe 4*PI
 
   it 'a rectangle with length zero and height zero should have zero area', ->
-    class Rectangle
-      area: ->
-        0
-    rectangle = new Rectangle
+    rectangle = new Rectangle 0, 0
     expect(rectangle.area()).toBe 0
+
+  it 'a rectangle with zero height and non-zero length should have zero area', ->
+    rectangle = new Rectangle 0, 3
+    expect(rectangle.area()).toBe 0
+
+  it 'a rectangle with non-zero height and zero length should have zero area', ->
+    rectangle = new Rectangle 2, 0
+    expect(rectangle.area()).toBe 0
+
+  it 'a rectangle with height 2 and length 3 should have area 6', ->
+    rectangle = new Rectangle 2, 3 
+    expect(rectangle.area()).toBe 6
+
