@@ -1,29 +1,29 @@
 PI = 3
 
-class Circle
-  constructor: (@radius) ->
-  area: ->
-    PI * @radius * @radius
-
-class Rectangle
-  constructor: (@height, @length) ->
-  area: ->
-    @height * @length
-
-class Triangle
-  constructor: (@height, @width) ->
-  area: ->
-    @height * @width / 2
-
-class Ellipse
+class Shape
+  
+class Ellipse extends Shape
   constructor: (@major, @minor) ->
   area: ->
     PI * @major * @minor
 
-class Square
-  constructor: (@length) ->
+class Circle extends Ellipse
+  constructor: (@radius) ->
+    super @radius, @radius
+
+class Rectangle extends Shape
+  constructor: (@height, @length) ->
   area: ->
-    @length * @length
+    @height * @length
+
+class Square extends Rectangle
+  constructor: (@length) ->
+    super @length, @length
+
+class Triangle extends Shape
+  constructor: (@height, @width) ->
+  area: ->
+    @height * @width / 2
 
 describe 'shapes kata', ->
   it 'a circle of zero radius should have zero area', ->
