@@ -20,6 +20,11 @@ class Ellipse
   area: ->
     PI * @major * @minor
 
+class Square
+  constructor: (@length) ->
+  area: ->
+    @length * @length
+
 describe 'shapes kata', ->
   it 'a circle of zero radius should have zero area', ->
     circle = new Circle 0
@@ -81,3 +86,10 @@ describe 'shapes kata', ->
     ellipse = new Ellipse 3, 4
     expect(ellipse.area()).toBe 12*PI
 
+  it 'a square with a side length of zero should have zero area', ->
+    square = new Square 0
+    expect(square.area()).toBe 0
+
+  it 'a square with a side length of two should have area 4', ->
+    square = new Square 2
+    expect(square.area()).toBe 4
