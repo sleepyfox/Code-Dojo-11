@@ -10,6 +10,16 @@ class Rectangle
   area: ->
     @height * @length
 
+class Triangle
+  constructor: (@height, @width) ->
+  area: ->
+    @height * @width / 2
+
+class Ellipse
+  constructor: (@major, @minor) ->
+  area: ->
+    PI * @major * @minor
+
 describe 'shapes kata', ->
   it 'a circle of zero radius should have zero area', ->
     circle = new Circle 0
@@ -38,4 +48,36 @@ describe 'shapes kata', ->
   it 'a rectangle with height 2 and length 3 should have area 6', ->
     rectangle = new Rectangle 2, 3 
     expect(rectangle.area()).toBe 6
+
+  it 'a triangle with zero height and width should have zero area', ->
+    triangle = new Triangle 0, 0
+    expect(triangle.area()).toBe 0
+
+  it 'a triangle with zero height and non-zero width should have zero area', ->
+    triangle = new Triangle 0, 3
+    expect(triangle.area()).toBe 0
+
+  it 'a triangle with non-zero height and zero width should have zero area', ->
+    triangle = new Triangle 4, 0
+    expect(triangle.area()).toBe 0
+
+  it 'a traingle with height 4 and width 3 should have area 6', ->
+    triangle = new Triangle 4, 3
+    expect(triangle.area()).toBe 6
+
+  it 'an ellipse with a major axis and minor axis of zero should have zero area', ->
+    ellipse = new Ellipse 0, 0
+    expect(ellipse.area()).toBe 0
+
+  it 'an ellipse with a zero major axis and a non-zero minor axis of zero should have zero area', ->
+    ellipse = new Ellipse 0, 4
+    expect(ellipse.area()).toBe 0
+
+  it 'an ellipse with a non-zero major axis and a zero minor axis of zero should have zero area', ->
+    ellipse = new Ellipse 3, 0
+    expect(ellipse.area()).toBe 0
+
+  it 'an ellipse with a major axis of 3 and a minor axis of 4 should have an area of 12*PI', ->
+    ellipse = new Ellipse 3, 4
+    expect(ellipse.area()).toBe 12*PI
 
