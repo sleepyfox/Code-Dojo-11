@@ -1,0 +1,18 @@
+{
+  "name": "Shapes",
+  "version": "1.0.0",
+  "description": "An implementation of the Shapes Kata from the London Code Dojo",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine-node --coffee --verbose test-*"
+  },
+  "keywords": [
+    "kata"
+  ],
+  "author": "@sleepyfox",
+  "license": "See LICENSE file",
+  "devDependencies": {
+    "coffee-script": "^1.9.1",
+    "jasmine-node": "^1.14.5"
+  }
+}

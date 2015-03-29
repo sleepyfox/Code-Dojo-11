@@ -8,8 +8,8 @@ class Ellipse extends Shape
     PI * @major * @minor
 
 class Circle extends Ellipse
-  constructor: (@radius) ->
-    super @radius, @radius
+  constructor: (radius) ->
+    super radius, radius
 
 class Rectangle extends Shape
   constructor: (@height, @length) ->
@@ -17,8 +17,8 @@ class Rectangle extends Shape
     @height * @length
 
 class Square extends Rectangle
-  constructor: (@length) ->
-    super @length, @length
+  constructor: (height) ->
+    super height, height
 
 class Triangle extends Rectangle
   area: ->
